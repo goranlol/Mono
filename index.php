@@ -13,9 +13,11 @@
 				if ( $FP_Items->have_posts() ) : while ( $FP_Items->have_posts() ) : $FP_Items->the_post();
 
 					get_template_part( 'theme-parts/content', get_post_format() );
+					
 
 				endwhile; endif;
 				?>
+				
 
 	</div>
 

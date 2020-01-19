@@ -24,7 +24,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
   --lightbox-tint-color:rgba(0, 85, 255, 0.308);
 	--heading-color:#00FFB2;
 	--home-btn-color:#00FFB2;
-	--body-copy-color: #0051ff;
+	--body-copy-color: #bac5cc;
   --label-color:#74ffd5;
 
   --ease-in:0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -144,6 +144,9 @@ a:hover, a:focus, a:active {
   display:block;
   height:43px;
 
+  position:fixed;
+  top:calc(25% - 128px);
+
 	font-family:'CatV_6x12_9';
   font-size:64px;
   line-height:52px;
@@ -171,6 +174,9 @@ a:hover, a:focus, a:active {
 
 .subtitle {
   
+  position:fixed;
+  top:calc(25% - 54px);
+
   width:322px;
   text-align:center;
   color:var(--bg-color);
@@ -208,29 +214,16 @@ a:hover, a:focus, a:active {
 
 }
 
-.cnt {
-
-  position: absolute;
-  left:50%;
-
-  display:flex;
-  flex-wrap:wrap;
-
-  width:calc(50% - 64px);
-  margin:0px auto 32px auto;
-
-  transition:var(--ease-out);
-
-}
-
 .about {
 
-  display:inline-block;
+  display:block; 
+  position:fixed;
+  top:25%;
 
-  flex-basis:1;
+  width:calc(50% - 32px);
+  max-width:512px;
 
-  width:33.3%;
-  max-width:480px;
+  padding:0px 0px 0px 32px;
 
   transition:var(--ease-out);
 
@@ -285,13 +278,18 @@ a:hover, a:focus, a:active {
 
 .folio-items {
 
+  position:absolute;
+  top:25%;
+  left:50%;
+
   display:flex;
 
   flex-wrap:wrap;
+  flex-direction: column;
 
   flex-basis:2;
 
-  width:1440px;
+  width:calc(50% - 32px);
 
   margin:0px 0px 0px 0px;
 
@@ -301,23 +299,20 @@ a:hover, a:focus, a:active {
 
 .project-link {
 
-  display:block;
-  width:33.3%;
-  max-width:480px;
-
   position:relative;
 
-  min-height:128px;
-  height:60vw;
-  max-height:480px;
-
+  display:block;
+  width:100%;
+  height:max-content;
 
   text-decoration:none;
-  background-color:var(--tint-color);
+  background-color:transparent;
   background-image:var(--bg-image-url);
   background-blend-mode:multiply;
   background-position:center center;
   background-size: cover; 
+
+  mix-blend-mode:screen;
 
   transition:var(--ease-out);
 
@@ -336,11 +331,8 @@ a:hover, a:focus, a:active {
 
 .project-link .project-title {
 
-  width:auto;
+  width:max-content;
   height:min-content;
-
-  position:absolute;
-  bottom:0px;
 
   font-size:36px;
   line-break:anywhere;
@@ -350,6 +342,46 @@ a:hover, a:focus, a:active {
   mix-blend-mode: screen;
 
   transition:inherit;
+
+}
+
+.project-link:hover .project-title {
+
+  mix-blend-mode: difference;
+
+}
+
+.project-thumbnail {
+
+  position:fixed;
+  top:0px;
+  left:0px;
+
+  display:block;
+  width:100%;
+  height:100%; 
+
+  opacity:0;
+
+  transition:var(--ease-out);
+  background-size: cover;
+  background-color:var(--tint-color);
+  background-blend-mode: multiply;
+
+  z-index:-1;
+
+}
+
+.project-link:hover + .project-thumbnail {
+
+  opacity:1;
+
+
+}
+
+.project-link:hover .project-meta {
+
+  color:#000;
 
 }
 
@@ -375,8 +407,9 @@ a:hover, a:focus, a:active {
 
 .label {
 
-  color:var(--label-color);
-  line-height:14px;
+  color:var(--bg-color);
+  border:3px solid var(--heading-color);
+  background-color:var(--heading-color);
 
 }
 
@@ -514,6 +547,7 @@ a:hover, a:focus, a:active {
 }
 
 #lightbox-wrapper {
+
   display:none;
 
   height:100%;
@@ -527,6 +561,7 @@ a:hover, a:focus, a:active {
 }
 
 .lightbox-tooltip {
+
   display:inherit;
 
   position:fixed;
