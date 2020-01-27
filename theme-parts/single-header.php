@@ -25,16 +25,16 @@
 <div id="lightbox-wrapper">
   <div id="lightbox" class="lightbox" > 
     
-      <a tabindex="2" id="gotoNext" class="lightbox-navs lightbox-gotoNext" href="#_" > 🡪 </a>
-      <a tabindex="3" id="gotoPrev" class="lightbox-navs lightbox-gotoPrev" href="#_" > 🡨 </a>
+      <a tabindex="2" id="gotoNext" class="lightbox-navs lightbox-gotoNext" href="#_" > ► </a>
+      <a tabindex="3" id="gotoPrev" class="lightbox-navs lightbox-gotoPrev" href="#_" > ◄ </a>
       <a id="lightbox-close" class="lightbox-closer" href="#_" ></a>
 
       <img id="lightbox-image" class="lightbox-image" src="">
 
-      <div class="lightbox-tooltip"> <span style="color:var(--heading-color);">🡨</span> and <span style="color:var(--heading-color);">🡪</span> to navigate, <span style="color:var(--heading-color);">[Esc]</span> to exit. </div>
+      <div class="lightbox-tooltip"> <span style="color:var(--heading-color);">◄</span> and <span style="color:var(--heading-color);">►</span> to navigate, <span style="color:var(--heading-color);">[Esc]</span> to exit. </div>
 
   </div>
 </div>
 
 
-	<a class="home-btn" id="home-btn" tabindex="1" href="<?php echo get_bloginfo( 'wpurl' );?>"><span>🡬</span> back</a>
+	<a class="home-btn" id="home-btn" tabindex="1" href="<?php echo get_bloginfo( 'wpurl' );?>"><span>◄</span> back</a>

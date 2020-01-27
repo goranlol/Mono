@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function(){
     //  Set up clicktags on images
     // ==================================
 
-
     // Lightbox on and off master functions
 
     function disableScroll() { 
@@ -69,6 +68,10 @@ document.addEventListener('DOMContentLoaded', function(){
         disableScroll();
         
     }
+
+    // ==============================
+    //  Clicktag setup 
+    // ==============================
 
     for (var i=0; i<len; i++) {
 
@@ -183,7 +186,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
             }
         }
-
 
     });
 

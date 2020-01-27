@@ -66,14 +66,10 @@ img[class*="wp-image"]{
 
   display:block;
 
-  float:left;
-
-  width:50%;
-  max-width:512px;
+  width:100%;
+  margin:0px auto 32px auto;
+  max-width:840px;
   height:auto;
-  margin:0px;
-
-  flex-basis:50%;
 
 }
 
@@ -192,6 +188,7 @@ a:hover, a:focus, a:active {
 
   color:var(--bg-color);
   background-color:var(--heading-color);
+
 }
 
 .heading {
@@ -204,7 +201,8 @@ a:hover, a:focus, a:active {
   line-break:loose;
   color:var(--bg-color);
 
-  margin:0px 0px 0px 0px;
+  margin:32px 0px 0px 0px;
+  clear:both;
 
   mix-blend-mode: screen;
 
@@ -475,7 +473,7 @@ a:hover, a:focus, a:active {
 .creds {
 
   display:flex;
-  margin:0px 0px 0px 0px;
+  margin:0px 0px 32px 0px;
 
   flex-basis:100%;
 
@@ -495,7 +493,7 @@ a:hover, a:focus, a:active {
 .note {
 
   text-align:left;
-  margin:0px 0px 0px 0px;
+  margin:0px 0px 32px 0px;
 
 }
 
@@ -754,8 +752,11 @@ a:hover, a:focus, a:active {
 .img3Grid {
 
   display:flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap:wrap;
+
+  margin: 0px 0px 32px 0px;
+  clear:both;
 
 }
 
@@ -857,6 +858,7 @@ a:hover, a:focus, a:active {
     font-size:36px;
     line-height:32px;
     margin:0px 0px 0px 0px;
+    clear:both;
     
   }
 
@@ -954,7 +956,7 @@ a:hover, a:focus, a:active {
   .creds {
 
     flex-flow: column;
-    margin: 0px 0px 48px 0px;
+    margin: 0px 0px 32px 0px;
   
   }
 
