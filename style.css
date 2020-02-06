@@ -1,15 +1,15 @@
 /*
-Theme Name: Portfolio Infra
+Theme Name: Mono
 Author: Goran Grce
-Version: 2.7 "INFRA"
+Version: 0.0 
 Author URI: https://wordpress.org/
-Description: A Wordpress portfolio theme inspired by NIX terminals and web IDEs 
+Description: A Wordpress portfolio theme. 
 
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others. XD
+Use it to make something cool, have fun, and share what you've learned with others. :)
 
 ==================================================
  #	WORDPRESS RESETS							              #
@@ -19,13 +19,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
 :root {
 
 	/*# STYLE VARIABLES #*/
-	--bg-color:#000D25;
-  --tint-color:#0057FF;
-  --lightbox-tint-color:rgba(0, 85, 255, 0.308);
-	--heading-color:#00FFB2;
-	--home-btn-color:#00FFB2;
-	--body-copy-color: #bac5cc;
-  --label-color:#74ffd5;
+	--bg-grad:linear-gradient(180deg, #ECECEC 0%, #F6F6F6 4.32%, #FAFAFA 13.62%, #F7F7F7 100%);
+  --tint-color:rgb(136, 136, 136);
+  --lightbox-tint-color:rgba(161, 161, 161, 0.308);
+  --heading-color:#FFF;
+  --heading-bg-color:#000;
+  --heading-bg-hover:#FFF;
+	--body-copy-color: #4D4D4D;
 
   --ease-in:0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
   --ease-out:0.65s cubic-bezier(0.19, 1, 0.22, 1);
@@ -66,31 +66,40 @@ img[class*="wp-image"]{
 
   display:block;
 
-  width:100%;
-  margin:0px auto 32px auto;
-  max-width:840px;
-  height:auto;
-
 }
 
 
 /*
 ==================================================
- #	THEME STYLES								                #
+ #	UNIVERSAL THEME STYLES					           #
 ==================================================
 */
 
 @font-face {
 
-  font-family: 'CatV_6x12_9';
-  src: url(font/CatV_6x12_9.ttf) format('truetype');
+  font-family: 'Archivo-Regular';
+  src: url(font/Archivo-Regular.ttf) format('truetype');
 
 }
 
 @font-face {
 
-  font-family: 'Ubuntu Mono'; 
-  src: url(font/UbuntuMono-Regular.ttf) format('truetype');
+  font-family: 'Archivo-Medium'; 
+  src: url(font/Archivo-Medium.ttf) format('truetype');
+
+}
+
+@font-face {
+
+  font-family: 'Archivo-SemiBold';
+  src: url(font/Archivo-SemiBold.ttf) format('truetype');
+
+}
+
+@font-face {
+
+  font-family: 'Archivo-Bold';
+  src: url(font/Archivo-Bold.ttf) format('truetype');
 
 }
 
@@ -98,30 +107,26 @@ img[class*="wp-image"]{
 
 body {
 
-    font-family: 'Ubuntu Mono', monospace;
-    font-style: normal;
-    font-weight: normal;
+    font-family: 'Archivo-Regular', Arial, Helvetica, sans-serif;
     font-size: 14px;
     line-height: 18px;
     color:var(--body-copy-color);
 
     margin:0px;
     width:100%;
-    min-height:100%;
-
-    background-color:var(--bg-color);
-
+    min-height: 100vh;
+  
+    background:linear-gradient(180deg, #ECECEC 0%, #F6F6F6 4.32%, #FAFAFA 13.62%, #F7F7F7 100%);
+    background-position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 a {
 
   color:var(--body-copy-color);
   text-decoration:none;
-
-  margin:0px;
-  padding:0px;
-
-  -webkit-tap-highlight-color:var(--heading-color);
+  cursor:pointer;
 
   transition:var(--ease-out);
 
@@ -129,411 +134,125 @@ a {
 
 a:hover, a:focus, a:active {
 
-  color:var(--heading-color);
-
+  color:#000;
+  
   transition:var(--ease-in);
 
 }
 
+a:hover.heading, a:focus.heading, a:active.heading {
+
+  background-color:#FFF;
+  border-color:#FFF;
+  color:#000;
+  
+}
+
 .title {
 
-  display:block;
-  height:43px;
-
-  position:fixed;
-  top:calc(25% - 128px);
-
-	font-family:'CatV_6x12_9';
+  height:min-content;
+  font-family:'Archivo-SemiBold', Arial, Helvetica, sans-serif; 
   font-size:64px;
-  line-height:52px;
-	color:var(--bg-color);
-  letter-spacing:0.01em;
-  -webkit-text-stroke: 2px var(--heading-color);
+  line-height:1em;
 
+  color:#000;
+
+  -webkit-text-stroke:1.2px #000;
+  -webkit-text-fill-color:transparent;
   paint-order: stroke fill;
-
-  padding:32px 0px 0px 32px;
-
-  transition:var(--ease-out);
-
-}
-
-.title::after {
-
-  content:'v';
-  font-size:20px;
-  position:relative;
-  left:-55px;
-  top:-28px;
-
-}
-
-.subtitle {
-  
-  position:fixed;
-  top:calc(25% - 54px);
-
-  width:322px;
-  text-align:center;
-  color:var(--bg-color);
-  background-color:var(--heading-color);
- 
-  margin:0px 0px 0px 32px;
-
-  transition:var(--ease-out);
-
-}
-
-::selection {
-
-  color:var(--bg-color);
-  background-color:var(--heading-color);
 
 }
 
 .heading {
 
-  width:100%;
-
-	font-family:'CatV_6x12_9';
-  font-size:48px;
-  line-height:41px;
-  line-break:loose;
-  color:var(--bg-color);
-
-  margin:32px 0px 0px 0px;
-  clear:both;
-
-  mix-blend-mode: screen;
-
-  background-color:var(--heading-color);
-
-  transition:var(--ease-out);
-
-}
-
-.about {
-
-  display:block; 
-  position:fixed;
-  top:25%;
-
-  width:calc(50% - 32px);
-  max-width:512px;
-
-  padding:0px 0px 0px 32px;
-
-  transition:var(--ease-out);
-
-}
-
-.about p {
-
-  margin:0px 0px 0px 0px;
-
-}
-
-.home-btn {
-
-	position:fixed;
-	left:32px;
-	top:32.000px;
-	width: max-content;
-
-	font-family:'CatV_6x12_9';
-  font-size:48px;
-  line-height:48px;
-  line-break:anywhere;
-  color:var(--bg-color);
-
-  mix-blend-mode:difference;
-  background:var(--heading-color);
-  border-bottom: 0.000px solid var(--heading-color);
-
-  transition:var(--ease-out);
-  z-index:2;
-
-}
-
-.home-btn span {
-
-  font-size:36px;
-  line-height:36px;
-
-}
-
-
-.home-btn:hover, .home-btn:active, .home-btn:focus {
-
-  left:32px;
-  top:28.000px;
-  color:var(--heading-color);
-  border-bottom:4.000px solid var(--heading-color);
-  background-color:var(--tint-color);
-  transition:var(--ease-in);
-
-}
-
-.folio-items {
-
-  position:absolute;
-  top:25%;
-  left:50%;
-
-  display:flex;
-
-  flex-wrap:wrap;
-  flex-direction: column;
-
-  flex-basis:2;
-
-  width:calc(50% - 32px);
-
-  margin:0px 0px 0px 0px;
-
-  transition:var(--ease-out);
-
-}
-
-.project-link {
-
-  position:relative;
-
-  display:block;
-  width:100%;
-  height:max-content;
-
-  text-decoration:none;
-  background-color:transparent;
-  background-image:var(--bg-image-url);
-  background-blend-mode:multiply;
-  background-position:center center;
-  background-size: cover; 
-
-  mix-blend-mode:screen;
-
-  transition:var(--ease-out);
-
-}
-
-.project-link:hover, .project-link:focus {
-  background-color:var(--heading-color);
-
-}
-
-.project-link:active {
-  background-color:#FFF;
-  background-blend-mode:normal;
-}
-
-
-.project-link .project-title {
+  display:inline;
 
   width:max-content;
-  height:min-content;
 
-  font-size:36px;
-  line-break:anywhere;
-  color:var(--bg-color);
+  font-family: 'Archivo-Bold', 'Arial Black';
+  font-size:1.8em;
+  line-height:1.286em;
+  color:var(--heading-color);
+  text-decoration: none;
 
-  background-color:var(--heading-color);
-  mix-blend-mode: screen;
+  background-color:var(--heading-bg-color);
+  border:0.15em solid #000;
+  border-width: 0.15em 0.3em;
 
-  transition:inherit;
-
-}
-
-.project-link:hover .project-title {
-
-  mix-blend-mode: difference;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 
 }
 
-.project-thumbnail {
+.note {
 
-  position:fixed;
-  top:0px;
-  left:0px;
-
-  display:block;
-  width:100%;
-  height:100%; 
-
-  opacity:0;
-
-  transition:var(--ease-out);
-  background-size: cover;
-  background-color:var(--tint-color);
-  background-blend-mode: multiply;
-
-  z-index:-1;
+  margin :18px 0px 18px 0px;
 
 }
 
-.project-link:hover + .project-thumbnail {
-
-  opacity:1;
-
-
-}
-
-.project-link:hover .project-meta {
-
+.note::first-line {
+  
+  font-family:'Archivo-Medium';
+  font-size:1.286em;
   color:#000;
 
 }
 
+hr {
+
+  border: 1px solid #000;
+  margin:18px 0px 18px 0px;
+
+}
+
+
+
 /*
 #=============================================
-  #  PROJECT PAGE                           #
+  #  DESKTOP                                #
 #=============================================
 */
 
-.main-col {
+.container {
 
-  max-width:1024px;
-
-  margin:0px 32px 32px 32px;
-
-  z-index:1;
-
-  transition:var(--ease-out);
+  max-width:1280px;
+  margin:144px auto 144px auto;
 
 }
 
-/* PROJECT PAGE CONTENT */ 
+/* FRONT PAGE */
 
-.label {
-
-  color:var(--bg-color);
-  border:3px solid var(--heading-color);
-  background-color:var(--heading-color);
-
-}
-
-.header-splash {
-
-  display:block;
-
-  padding:80px 0px 0px 32px;
-  width:calc(100% - 64px);
-  max-width:1024px;
-  height:35vw;
-  overflow:hidden;
-
-  transition:var(--ease-out);
-
-}
-
-.splash-image {
-
-  position:relative;
-
-  width:100%; 
-  height:100%;
-  
-  background-position:center center;
-  background-size: cover;
-  background-blend-mode: multiply;
-  background-color:var(--tint-color);
-
-  transition:inherit;
-
-}
-
-.splash-image:hover {
-  
-  background-color:#FFF;
-
-}
-
-.splash-image .proj-info {
-
-  position:absolute;
-
-  width:max-content;
-  mix-blend-mode:screen;
-  transition:inherit;
-
-}
-
-.client {
-  bottom:128px;
-}
-
-.proj {
-  bottom:0px;
-}
-
-.proj-info .label {
-  color:var(--bg-color);
-  background-color:var(--heading-color);
-}
-
-.creds {
+.folio-items {
 
   display:flex;
-  margin:0px 0px 32px 0px;
 
-  flex-basis:100%;
+  width:auto;
 
-  text-align:left;
+  margin:18px 0px 0px -36px;
+  
+}
+
+.project-tile {
+
+  flex-basis:33%;
+  height:380px;
+
+  border: 1px solid #000;
+
+  margin-left:36px;
+  padding:0px;
 
 }
 
-.creds p {
+.project-tile .heading {
 
-  flex-basis:max-content;
-  min-width:128px;
-  margin:0px 32px 0px 0px;
+  word-spacing:100vw;
 
 }
 
-
-.note {
-
-  text-align:left;
-  margin:0px 0px 32px 0px;
-
-}
-
-.note::before {
-
-  content:'Note';
-  width:min-content;
-  position:relative;
-
-  margin-right:16px;
-
-  text-align:left;
-  color:var(--bg-color);
-  background-color: var(--heading-color);
-
-}
+/* PROJECT PAGE */ 
 
 
-.video {
-
-  display:block;
-
-  overflow: hidden;
-  padding-top: 56.25%;
-  position: relative;
-
-  clear:both;
-
-}
-
-.video iframe {
-
-  border: 0;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;  
-
-}
 
 /* LIGHTBOX STYLES */
 
@@ -554,7 +273,6 @@ a:hover, a:focus, a:active {
   z-index:3;
   
   position:fixed;
-  /* top:-100vh; */
 
 }
 
@@ -796,20 +514,6 @@ a:hover, a:focus, a:active {
 
 }
 
-.img2Grid {
-
-  display:flex; 
-  justify-content: space-between;
-  flex-wrap:wrap;
-
-}
-
-.img2Grid .lightbox-link {
-
-  flex-basis:48.5%;
-
-}
-
 
 /*
 #=============================================
@@ -817,154 +521,6 @@ a:hover, a:focus, a:active {
 #=============================================
 */
 
-@media screen and (max-width:840px) {
-
-  img[class*="wp-image"]{
-
-    width:auto;
-    max-width:100%;
-    margin:0px auto 24px auto;
-  
-    flex-basis:100%;
-  
-  }
-
-  .title {
-  
-    font-size:46px;
-    line-height:32px;
-    height:28px;
-    padding:24px 0px 0px 24px;
-  
-  }
-
-  .title::after {
-
-    font-size:14px;
-    left:-40px;
-    top:-24px;
-
-  }
-
-  .subtitle {
-
-    width:232px;
-    margin:0px 0px 0px 24px;
-
-  }
-
-  .heading {
-
-    font-size:36px;
-    line-height:32px;
-    margin:0px 0px 0px 0px;
-    clear:both;
-    
-  }
-
-  .about {
-
-    width:100%;
-    max-width:100%;
-
-  }
-  
-  .cnt {
-
-    width:calc(100% - 48px);
-    margin:0px auto 24px auto;
-
-  }
-
-  .home-btn {
-
-    position:fixed;
-    left:16px;
-    top:16.000px;
-    width: max-content;
-  
-    font-family:'CatV_6x12_9';
-    font-size:36px;
-    line-height:36px;
-    line-break:anywhere;
-    color:var(--bg-color);
-  
-    mix-blend-mode:difference;
-    background:var(--heading-color);
-    border-bottom: 0.000px solid var(--heading-color);
-  
-    transition:var(--ease-out);
-    z-index:2;
-  
-  }
-  
-  .home-btn span {
-  
-    font-size:28px;
-    line-height:28px;
-  
-  }
-  
-  
-  .home-btn:hover, .home-btn:active, .home-btn:focus {
-  
-    left:16px;
-    top:12.000px;
-    color:var(--heading-color);
-    border-bottom:4.000px solid var(--heading-color);
-    background-color:var(--tint-color);
-    transition:var(--ease-in);
-  
-  }
-
-  .main-col {
-    
-    margin:0px 24px 24px 24px;
-
-  }
-
-  .project-link {
-
-    width:100%;
-    max-width:100%;
-    height:50vw;
-  
-  }
-
-  .project-link .project-title {
-  
-    font-size:28px;
-
-  }
-
-  .proj-info .proj {
-
-    padding:0px;
-    margin:0px;
-
-  }
-
-  .header-splash {
-
-    height:70vw;
-    min-height:256px;
-    width:calc(100% - 32px);
-    padding:96px 0px 24px 24px;
-
-  }
-
-  .creds {
-
-    flex-flow: column;
-    margin: 0px 0px 32px 0px;
-  
-  }
-
-  .note {
-
-    margin:0px 0px 24px 0px;
-
-  }
 
   .lightbox-navs {
 
